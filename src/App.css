@@ -1,0 +1,69 @@
+.App{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: brown;
+  min-height: 100vh;
+}
+.image{
+  width: 200px;
+}
+.class-titulo{
+  font-size: 30px;
+}
+.padre{
+  /*background-color: blue;*/
+  width: 600px;
+  background-image: url(https://images.ctfassets.net/hrltx12pl8hq/1DauLWsEwcnLf4NpCUMxxZ/85290d98239ff0bbee9803932249c444/weather-shutterstock_1716559711.jpg?fit=fill&w=480&h=320);
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+.fils{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.list-item{
+  margin: 20px;
+}
+
+
+
+.tit,
+.class-titulo{
+  text-align: center;
+}
+
+
+
+.btn{
+   margin: 30px  160px ;
+   width: 350px;
+   border-radius: 15px;
+   cursor: pointer;
+}
+
+/*
+h17
+let button=weather?.main.temp
+let Farengeith=()=> {if(weather===button){
+  setWeather((weather?.main.temp - 273.15).toFixed(1))
+}
+   else{  setWeather(button)}
+}
+marca_de_verificação_branca
+olhos
+mãos_para_cima
+
+
+
+
+
+20h17
+y pues en referencia al estado de weather
+20h18
+const [weather, setWeather] = useState()
+*/
