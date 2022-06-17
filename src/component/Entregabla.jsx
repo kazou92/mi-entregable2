@@ -5,7 +5,7 @@ const Entregabla = () => {
   const [objet, setObjet] = useState()
   const [weater, setWeater] = useState({})
   const [weather, setWeather] = useState(true)
-  
+
 
   let long, lat
 
@@ -19,14 +19,14 @@ const Entregabla = () => {
 
 
     navigator.geolocation.getCurrentPosition(succes)
-   
+
 
   }
 
 
-  
 
- 
+
+
 
   const api_key = "dc91283d4994d89690129a89c97d1de3"
   useEffect(() => {
@@ -40,14 +40,14 @@ const Entregabla = () => {
   }, [objet])
   console.log(weater)
 
-  let button=weather.main?.temp
+  let button = weather.main?.temp
   let faren = (button - 273.15).toFixed(this)
   console.log(button)
-  
-    button = ()=> setWeather(faren)
-    console.log(weather)
 
- 
+  button = () => setWeather(faren)
+  console.log(weather)
+
+
 
 
 
@@ -55,16 +55,26 @@ const Entregabla = () => {
   return (
     <div className='padre'>
       <h1 className='tit' > Wheather App </h1>
-      <p className='class-titulo'>{`${weater.name},${weater.sys?.country}` }</p>
+      <p className='class-titulo'>{`${weater.name},${weater.sys?.country}`}</p>
       <div className='fils'>
         <img className='image' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlKhGTzMTuLQbqlURXd0SVec5nWsTFYJkkeQ&usqp=CAU" alt="" />
 
         <ul className="list">
-          <li className="list-item"> <b>Wind Speed:</b>{weater.wind?.speed} m/s</li>
-          <li className="list-item"> <b>Clouds:</b> {weater.clouds?.all} %</li>
-          <li className="list-item">  <b>Pressure:</b>{weater.main?.pressure} mb</li>
+          <li className="list-item">
+            <i class="fa-solid fa-wind">
+            </i>
+            <b>Wind Speed:</b>
+            {weater.wind?.speed} m/s
+          </li>
+          <li className="list-item"> <i class="fa-solid fa-cloud"></i> <b>Clouds:</b> {weater.clouds?.all} %</li>
+          <li className="list-item"> <i class="fa-solid fa-temperature-empty"></i> <b>Pressure:</b>{weater.main?.pressure} mb</li>
 
-          <li  className='list-item'> <b>Temp :</b> {weater.main?.temp}</li>
+          <li className='list-item'>
+          <i class="fa-solid fa-tire-pressure-warning"></i>
+           <b>Temp :</b> 
+           {weater.main?.temp}
+           
+           </li>
         </ul>
       </div>
 
