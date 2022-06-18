@@ -40,12 +40,12 @@ const Entregabla = () => {
         .catch(err => console.log(err))
     }
 
- 
+
 
   }, [objet])
-   let kelvin =(weater.main?.temp)
+  let kelvin = (weater.main?.temp)
 
-   let cel =   (kelvin - 273.15).toFixed()
+  let cel = (kelvin - 273.15).toFixed()
 
 
 
@@ -72,7 +72,7 @@ const Entregabla = () => {
             <i class="fa-solid fa-tire-pressure-warning"></i>
             <b>Temp :</b>
             {
-              weather? `${cel} °C`:`${kelvin} K`
+              weather ? `${cel} °C` : `${kelvin} K`
             }
 
           </li>
@@ -81,8 +81,9 @@ const Entregabla = () => {
 
 
       <button className='btn' onClick={celcuis} >
-        {weather? " Cambiar Grado Kelvin":" Cambiar Grado Celcuis "}
+        {weather ? " Cambiar Grado Kelvin" : " Cambiar Grado Celcuis "}
       </button>
+
     </div>
   )
 }
