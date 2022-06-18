@@ -54,7 +54,7 @@ const Entregabla = () => {
   return (
     <div className='padre'>
       <h1 className='tit' > Wheather App </h1>
-      <p className='class-titulo'>{`${weater?.name},${weater.sys?.country}`}</p>
+      <p className='class-titulo'>{`${weater.name},${weater.sys?.country}`}</p>
       <div className='fils'>
         <img className='image' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlKhGTzMTuLQbqlURXd0SVec5nWsTFYJkkeQ&usqp=CAU" alt="" />
 

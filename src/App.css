@@ -1,3 +1,9 @@
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 .App{
   display: flex;
   justify-content: center;
@@ -49,22 +55,4 @@
   list-style: none;
 }
 
-/*
-h17
-let button=weather?.main.temp
-let Farengeith=()=> {if(weather===button){
-  setWeather((weather?.main.temp - 273.15).toFixed(1))
-}
-   else{  setWeather(button)}
-}
 
-
-
-
-
-
-20h17
-y pues en referencia al estado de weather
-20h18
-const [weather, setWeather] = useState()
-*/
