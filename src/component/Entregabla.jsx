@@ -1,52 +1,51 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 
+
 const Entregabla = () => {
-  const [objet, setObjet] = useState()
+  const [objet, setObjet] = useState({})
   const [weater, setWeater] = useState({})
   const [weather, setWeather] = useState(true)
 
+  const celcuis = () => setWeather(!weather)
 
-  let long, lat
 
-  const getLongLat = () => {
+
+
+
+  useEffect(() => {
     const succes = (pos) => {
       console.log(pos)
-      long = pos.coords.longitude
-      lat = pos.coords.latitude
+      const long = pos.coords.longitude
+      const lat = pos.coords.latitude
       setObjet({ long, lat })
     }
 
 
     navigator.geolocation.getCurrentPosition(succes)
 
-
-  }
-
+  }, [])
 
 
 
 
 
-  const api_key = "dc91283d4994d89690129a89c97d1de3"
+
   useEffect(() => {
-    if (objet !== undefined) {
+    if (objet.lat !== undefined) {
+      const api_key = "dc91283d4994d89690129a89c97d1de3"
       const url = `https://api.openweathermap.org/data/2.5/weather?lat=${objet?.lat}&lon=${objet?.long}&appid=${api_key}`
       axios.get(url)
         .then(res => setWeater((res.data)))
         .catch(err => console.log(err))
     }
 
+ 
+
   }, [objet])
-  console.log(weater)
+   let kelvin =(weater.main?.temp)
 
-  let button = weather.main?.temp
-  let faren = (button - 273.15).toFixed(this)
-  console.log(button)
-
-  button = () => setWeather(faren)
-  console.log(weather)
-
+   let cel =   (kelvin - 273.15).toFixed()
 
 
 
@@ -55,7 +54,7 @@ const Entregabla = () => {
   return (
     <div className='padre'>
       <h1 className='tit' > Wheather App </h1>
-      <p className='class-titulo'>{`${weater.name},${weater.sys?.country}`}</p>
+      <p className='class-titulo'>{`${weater?.name},${weater.sys?.country}`}</p>
       <div className='fils'>
         <img className='image' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlKhGTzMTuLQbqlURXd0SVec5nWsTFYJkkeQ&usqp=CAU" alt="" />
 
@@ -70,16 +69,20 @@ const Entregabla = () => {
           <li className="list-item"> <i class="fa-solid fa-temperature-empty"></i> <b>Pressure:</b>{weater.main?.pressure} mb</li>
 
           <li className='list-item'>
-          <i class="fa-solid fa-tire-pressure-warning"></i>
-           <b>Temp :</b> 
-           {weater.main?.temp}
-           
-           </li>
+            <i class="fa-solid fa-tire-pressure-warning"></i>
+            <b>Temp :</b>
+            {
+              weather? `${cel} °C`:`${kelvin} K`
+            }
+
+          </li>
         </ul>
       </div>
 
 
-      <button className='btn' onClick={getLongLat} >getLongLat</button>
+      <button className='btn' onClick={celcuis} >
+        {weather? " Cambiar Grado Kelvin":" Cambiar Grado Celcuis "}
+      </button>
     </div>
   )
 }
